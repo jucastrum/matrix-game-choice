@@ -1,0 +1,114 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg1: #1e40af;
+}
+
+body {
+    background-color: rgb(20, 20, 20);
+    font-family: 'Roboto', sans-serif;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    position: relative;
+    flex-direction: column; 
+    overflow-y: scroll; 
+}
+
+canvas {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.card {
+    background: linear-gradient(45deg, #1e40af, #7dd3fc);
+    color: white;
+    width: 100%;
+    max-width: 680px;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    position: relative;
+    border: 0.5rem;
+    border-image: linear-gradient(45deg, #1e40af, #7dd3fc) 1;
+    transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
+    max-height: 300px;
+    margin-bottom: 20px; 
+}
+
+.card .img-holder {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    box-sizing: border-box;
+    border-radius: 0.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.card .img-holder img {
+    width: 100%;
+    height: auto;
+    max-width: 680px;
+    max-height: 450px;
+    object-fit: cover;
+    display: block;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.card .card-content {
+    padding: 20px;
+    position: relative;
+    z-index: 2;
+    background: linear-gradient(45deg, #1e40af, #7dd3fc);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out, max-height 0.3s ease-in-out;
+    max-height: 0;
+}
+
+.card .card-content h2 {
+    font-weight: bold;
+    margin-bottom: 1rem;
+
+}
+
+.card p {
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.card:hover {
+    max-height: 1000px;
+}
+
+.card:hover .img-holder img {
+    opacity: 1;
+}
+
+.card:hover .card-content {
+    opacity: 1;
+    max-height: 500px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .card {
+        max-width: 90%;
+    }
+}

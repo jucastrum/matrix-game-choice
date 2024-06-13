@@ -1,0 +1,172 @@
+@font-face {
+  font-family: 'Roboto';
+  src: url('../fonts/Roboto-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Matrix';
+  src: url('../fonts/Matrix.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000; 
+  position: relative;
+  overflow: hidden; 
+}
+
+canvas {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+}
+
+.container h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: white;
+  font-size: 4rem;
+  font-family: 'Matrix', sans-serif;
+}
+
+.container .cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+.container .card {
+  width: 300px;
+  height: 450px;
+  padding: 20px;
+  margin: 0 10px;
+  cursor: pointer;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #38bdf8;
+  transform-style: preserve-3d;
+  transform: perspective(1000px);
+  transition: transform 0.5s, box-shadow 0.5s;
+}
+
+.container .card h2 {
+  color: #fff;
+  transform-style: preserve-3d;
+  font-size: 2rem; 
+}
+
+.container .card img.pilula {
+  max-width: 250px;
+  transform-style: preserve-3d;
+  transition: 0.5s;
+  display: block;
+}
+
+.container .card:hover img.pilula {
+  transform: translate3d(0, 0, 100px);
+}
+
+.container div.card1 {
+  background-image: linear-gradient(45deg, #1e40af, #7dd3fc);
+}
+
+.container div.card2 {
+  background-image: linear-gradient(45deg, #b91c1c, #f87171);
+}
+
+/* Responsividade */
+@media (max-width: 1200px) {
+  .container h1 {
+    font-size: 3rem;
+  }
+  .container .card {
+    width: 250px;
+    height: 375px;
+  }
+  .container .card h2 {
+    font-size: 1.5rem;
+  }
+  .container .card img.pilula {
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container h1 {
+    font-size: 2.5rem;
+  }
+  .container .card {
+    width: 200px;
+    height: 300px;
+  }
+  .container .card h2 {
+    font-size: 1.25rem;
+  }
+  .container .card img.pilula {
+    max-width: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container h1 {
+    font-size: 2rem;
+  }
+  .container .card {
+    width: 150px;
+    height: 225px;
+  }
+  .container .card h2 {
+    font-size: 1rem;
+  }
+  .container .card img.pilula {
+    max-width: 150px;
+  }
+}
+
+@media (max-width: 320px) {
+  .container h1 {
+    font-size: 1.5rem;
+  }
+  .container .card {
+    width: 120px;
+    height: 180px;
+  }
+  .container .card h2 {
+    font-size: 0.875rem;
+  }
+  .container .card img.pilula {
+    max-width: 100px;
+  }
+}
